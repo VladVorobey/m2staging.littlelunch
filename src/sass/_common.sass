@@ -1,0 +1,85 @@
+.container-content
+	box-sizing: border-box
+	margin-left: auto
+	margin-right: auto
+	max-width: 1140px
+	padding-left: 20px
+	padding-right: 20px
+	width: auto
+	font-family: $container-content-font
+	font-weight: 400
+	.block-content
+		&__title
+			display: block
+			text-align: center
+			font-family: 'DKLemomYellowSun','Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif
+			line-height: 1.2
+			color: #a1c856
+			+rmin(920)
+				font-size:  5.8rem
+				margin-bottom:  20px
+		&__main-content
+			padding-top: 15px
+			padding-bottom: 25px
+			+rmin(920)
+				padding-top:  20px
+				padding-bottom: 50px
+			&_wrapper
+				border-top: 1px solid #d6d6d6
+				position: relative
+				&::before
+					content: ''
+					width: 100%
+					height: 1px
+					background-color: #d6d6d6
+					position: absolute
+					top: 2px
+					left: 0
+					right: 0
+			&_img-wrapper
+				img
+					width: 100%
+			&_main-title
+				font-size: 1.8rem
+				font-weight: 600
+				text-transform: uppercase
+				padding-bottom: 15px
+				margin-bottom: 15px
+				position: relative
+				&::before
+					content: ''
+					width: 10%
+					height: 3px
+					background: #a1c856
+					position: absolute
+					bottom: 0
+					left: 0
+				+rmin(920)
+					font-size: 2.8rem
+					margin-bottom: 30px
+			&_text
+				img
+					display: block
+					&:nth-of-type(odd)
+						width: 100%
+						margin: 0 auto
+						+rmin(600)
+							float: left
+							padding-right: 25px
+							padding-bottom: 25px
+							width: 50%
+					&:nth-of-type(even)
+						float: right
+						width: 50%
+				p
+					font-size: 1.4rem
+					margin-bottom: 15px
+					&:last-child
+						margin-bottom: 0
+					+rmin(920)
+						font-size: 1.6rem
+					a
+						color: #a1c856
+						text-decoration: none
+						&:hover
+							text-decoration: underline
