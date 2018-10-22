@@ -2,6 +2,7 @@
 	box-sizing: border-box
 	margin-left: auto
 	margin-right: auto
+	//max-width: 1140px
 	max-width: 825px
 	padding-left: 20px
 	padding-right: 20px
@@ -39,36 +40,53 @@
 					right: 0
 			&_cols
 				display: flex
-
+				flex-direction: column-reverse
+				+rmin(768)
+					flex-direction: row
 			&_cols-wrapper
-				width: 50%
-				&:nth-child(odd)
-					padding-right: 15px
-				&:nth-child(even)
-					padding-left: 15px
-			&_cols-link
-				&:nth-child(even)
-					padding-left: 100px
-					font-size: 1.2rem
-					position: relative
-					&::before
-						content: ''
-						width: 2px
-						height: 75px
-						background: #a1c856
-						position: absolute
-						left: 100px
-						top: 75px
-					a
-						display: block
-						color: #a1c856
-						padding-left: 20px
-						margin-bottom: 15px
-						&:hover
-							text-decoration: none
+				width: 100%
 
+				+rmin(768)
+					width: 50%
+					&:nth-child(odd)
+						padding-right: 15px
+					&:nth-child(even)
+						padding-left: 15px
+			&_cols-link
+				+rmin(768)
+					&:nth-child(even)
+						padding-left: 100px
+						font-size: 1.2rem
+						position: relative
+						&::before
+							content: ''
+							width: 2px
+							height: 75px
+							background: #a1c856
+							position: absolute
+							left: 100px
+							top: 75px
+				a
+					display: block
+					color: #a1c856
+					margin-bottom: 15px
+					font-size: 1.2rem
+					&:hover
+						text-decoration: none
+					+rmin(768)
+						font-size: 1.4rem
+						padding-left: 20px
+			&_cols-text
+				column-width: auto
+				column-count: 1
+				column-gap: 30px
+				+rmin(768)
+					column-count: 2
+					margin-bottom: 50px
 			&_margin-img
-				margin-bottom: 90px
+				margin-bottom: 20px
+				+rmin(768)
+					margin-bottom: 90px
 			&_img-wrapper
 				position: relative
 				img
@@ -110,7 +128,7 @@
 					&:nth-of-type(odd)
 						width: 100%
 						margin: 0 auto 15px
-						+rmin(600)
+						+rmin(768)
 							float: left
 							padding-right: 25px
 							margin-left: -20px
@@ -118,17 +136,96 @@
 					&:nth-of-type(even)
 						float: right
 						width: 50%
-						+rmin(600)
+						+rmin(768)
 							float: left
 							padding-left: 25px
 							margin-right: -20px
+							padding-right: 20px
 				p
 					font-size: 1.2rem
 					margin-bottom: 15px
-					&:last-child
-						margin-bottom: 65px
+					+rmin(768)
+						&:last-child
+							margin-bottom: 65px
 					a
 						color: #a1c856
 						text-decoration: underline
 						&:hover
 							text-decoration: none
+				.img__wrap
+					display: flex
+					flex-direction: column
+					img
+						height: 100%
+						width: 50%
+					+rmin(768)
+						flex-direction: row
+						display: flex
+						width: 50%
+						img
+							width: 50%
+							padding: 0 15px!important
+							margin: 0!important
+						&:nth-of-type(odd)
+							width: 50%
+							margin: 0 auto 15px
+							float: none
+							+rmin(768)
+								width: 50%
+								float: left
+								margin-right: 40px
+								margin-left: -20px
+								padding-left: 20px
+								margin-top: 10px
+								padding-right: 0
+						&:nth-of-type(even)
+							float: none
+							margin: 0 auto 15px
+							width: 50%
+							+rmin(768)
+								float: right
+								width: 50%
+								margin-left: 40px
+								margin-right: -20px
+								margin-top: 10px
+								padding-left: 0
+								padding-right: 20px
+
+				&-reverse
+					img
+						display: block
+						&:nth-of-type(even)
+							width: 50%
+							margin: 0 auto 15px
+							float: none
+							+rmin(768)
+								width: 50%
+								float: left
+								margin-right: 40px
+								margin-top: 10px
+								margin-left: -20px
+								padding-left: 20px
+								padding-right: 0
+						&:nth-of-type(odd)
+							float: none
+							margin: 0 auto 15px
+							width: 50%
+							+rmin(768)
+								float: right
+								width: 50%
+								margin-left: 40px
+								margin-right: -20px
+								margin-top: 10px
+								padding-left: 0
+								padding-right: 20px
+
+.clearfix:before,
+.clearfix:after
+	content: ''
+	display: table
+
+.clearfix:after
+	clear: both
+
+.clearfix
+	zoom: 1 /* For IE 6/7 hasLayout */
